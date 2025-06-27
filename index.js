@@ -140,7 +140,7 @@
                 submitButton.disabled = true;
                 submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
                 
-                fetch('http://83.136.235.129:8880/api/Contact/send', {
+                fetch('https://waznaw.ru/api/Contact/send', {
                     method: 'POST',
                     headers: {
                         'accept': '*/*',
