@@ -77,17 +77,11 @@
                 
                 const formData = {
                     name: document.getElementById('modalName').value,
-                    email: document.getElementById('modalContact').value.includes('@') ? 
-                           document.getElementById('modalContact').value : '',
+                    email: document.getElementById('modalContact').value,
                     subject: document.getElementById('modalSubject').value,
                     message: document.getElementById('modalMessage').value
                 };
-                
-                if (!formData.email && document.getElementById('modalContact').value) {
-                    // Если это телефон, а не email
-                    formData.message = `Телефон: ${document.getElementById('modalContact').value}\n\n${formData.message}`;
-                }
-                
+ 
                 sendContactRequest(formData, 'requestForm');
             });
             
@@ -98,7 +92,7 @@
                 
                 const formData = {
                     name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
+                    email: document.getElementById('contact').value,
                     subject: document.getElementById('subject').value,
                     message: document.getElementById('message').value
                 };
