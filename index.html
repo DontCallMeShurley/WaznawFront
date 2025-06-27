@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waznaw | Инфраструктурные решения</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <!-- Переключатель темы -->
+    <div class="theme-switcher" id="themeSwitcher">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Хедер -->
+    <header>
+        <div class="header-bg"></div>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">Waznaw</h1>
+                <div class="slogan">Смотри. Думай. Создавай</div>
+                <p class="tagline">Инфраструктурные решения и системная интеграция для цифрового бизнеса</p>
+                <button class="btn btn-primary" id="openModal">
+                    <i class="fas fa-paper-plane"></i> Отправить заявку
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Сервисы -->
+    <section class="section services">
+        <div class="container">
+            <h2 class="section-title" data-aos>Наши направления</h2>
+
+            <div class="services-grid">
+                <div class="service-card" data-aos>
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="service-title">Разработка систем</h3>
+                    <p class="service-description">Создаем индивидуальные программные решения для автоматизации
+                        бизнес-процессов любой сложности.</p>
+                </div>
+
+                <div class="service-card" data-aos data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="service-title">CRM интеграции</h3>
+                    <p class="service-description">Настраиваем и интегрируем CRM системы с другими сервисами компании
+                        для единого рабочего пространства.</p>
+                </div>
+
+                <div class="service-card" data-aos data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="service-title">Инфраструктура</h3>
+                    <p class="service-description">Разрабатываем и поддерживаем надежную IT-инфраструктуру для
+                        бесперебойной работы ваших сервисов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Наши проекты -->
+    <section class="section portfolio">
+        <div class="container">
+            <h2 class="section-title" data-aos>Наши проекты</h2>
+            <p class="section-subtitle" data-aos>Реализованные решения для бизнеса и инфраструктуры</p>
+
+            <div class="portfolio-grid">
+                <!-- Проект 1 -->
+                <div class="portfolio-card" data-aos onclick="openProjectModal('sender')">
+                    <div class="portfolio-image"
+                        style="background-image: linear-gradient(135deg, rgba(110,7,243,0.2), rgba(0,245,212,0.2))">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Sender</h3>
+                        <div class="portfolio-status status-up">
+                            <span class="status-dot"></span>
+                            <span>Online</span>
+                        </div>
+                        <p>Платформа для массовой рассылки сообщений</p>
+                    </div>
+                </div>
+
+                <!-- Проект 2 -->
+                <div class="portfolio-card" data-aos data-aos-delay="100" onclick="openProjectModal('waznaw')">
+                    <div class="portfolio-image"
+                        style="background-image: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(5,150,105,0.2))">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Waznaw Cloud</h3>
+                        <div class="portfolio-status status-up">
+                            <span class="status-dot"></span>
+                            <span>Online</span>
+                        </div>
+                        <p>Инфраструктурные решения для бизнеса</p>
+                    </div>
+                </div>
+
+                <!-- Проект 3 -->
+                <div class="portfolio-card" data-aos data-aos-delay="200" onclick="openProjectModal('crm')">
+                    <div class="portfolio-image"
+                        style="background-image: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(129,140,248,0.2))">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>CRM Integrations</h3>
+                        <div class="portfolio-status status-maintenance">
+                            <span class="status-dot"></span>
+                            <span>Maintenance</span>
+                        </div>
+                        <p>Интеграция CRM систем с бизнес-процессами</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальные окна проектов -->
+    <div id="senderModal" class="project-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('sender')">&times;</button>
+            <div class="modal-header">
+                <h3>Sender</h3>
+                <div class="portfolio-status status-up">
+                    <span class="status-dot"></span>
+                    <span>Online</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <span>Дата запуска</span>
+                            <strong>15 марта 2025</strong>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-link"></i>
+                        <div>
+                            <span>Ссылка</span>
+                            <a href="https://sender.waznaw.ru" target="_blank">sender.waznaw.ru</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-description">
+                    <h4>Описание проекта</h4>
+                    <p>Мощный сервис для массовых рассылок покупателям OZON сообщений. Поддерживает группировку,
+                        фильтрацию. Есть функционал триггеров для рассылок в стиле "купил А - держи промокод на Б"</p>
+
+                    <h4>Технологии</h4>
+                    <div class="tech-tags">
+                        <span>.NET</span>
+                        <span>PostgreSQL</span>
+                        <span>DevExpress</span>
+                        <span>RabbitMQ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="waznawModal" class="project-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('waznaw')">&times;</button>
+            <div class="modal-header">
+                <h3>Waznaw Cloud</h3>
+                <div class="portfolio-status status-up">
+                    <span class="status-dot"></span>
+                    <span>Online</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <span>Дата запуска</span>
+                            <strong>10 января 2023</strong>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-link"></i>
+                        <div>
+                            <span>Ссылка</span>
+                            <a href="https://waznaw.ru" target="_blank">waznaw.ru</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-description">
+                    <h4>Описание проекта</h4>
+                    <p>Комплекс облачных решений для бизнеса включая виртуальные серверы, управляемые базы данных,
+                        объектное хранилище и CDN. Обеспечивает высокую доступность и безопасность инфраструктуры.</p>
+
+                    <h4>Технологии</h4>
+                    <div class="tech-tags">
+                        <span>Kubernetes</span>
+                        <span>Terraform</span>
+                        <span>Prometheus</span>
+                        <span>Grafana</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="crmModal" class="project-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('crm')">&times;</button>
+            <div class="modal-header">
+                <h3>CRM Integrations</h3>
+                <div class="portfolio-status status-maintenance">
+                    <span class="status-dot"></span>
+                    <span>Maintenance</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <span>Дата запуска</span>
+                            <strong>5 сентября 2023</strong>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-link"></i>
+                        <div>
+                            <span>Ссылка</span>
+                            <a href="https://crm.waznaw.ru" target="_blank">crm.waznaw.ru</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-description">
+                    <h4>Описание проекта</h4>
+                    <p>Решение для интеграции популярных CRM систем (AmoCRM, Битрикс24) с бизнес-процессами компании.
+                        Автоматизация воронки продаж, синхронизация данных между системами, аналитика.</p>
+
+                    <h4>Технологии</h4>
+                    <div class="tech-tags">
+                        <span>Python</span>
+                        <span>Django</span>
+                        <span>Celery</span>
+                        <span>REST API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Контакты -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info" data-aos>
+                    <h3 class="contact-title">Свяжитесь с нами</h3>
+                    <p class="contact-text">Готовы обсудить ваш проект или ответить на любые вопросы. Оставьте заявку, и
+                        мы свяжемся с вами в ближайшее время.</p>
+
+                    <div class="contact-methods">
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:dmitriy@waznaw.ru">dmitriy@waznaw.ru</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Telegram</h4>
+                                <a href="https://t.me/dontcallmeshurley" target="_blank">@dontcallmeshurley</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form" data-aos data-aos-delay="100">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Ваше имя</label>
+                            <input type="text" id="name" class="form-control" placeholder="Введите имя" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="email@example.com"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Тема</label>
+                            <input type="text" id="subject" class="form-control"
+                                placeholder="О чем вы хотите поговорить?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Сообщение</label>
+                            <textarea id="message" class="form-control" placeholder="Опишите ваш проект или вопрос..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Отправить сообщение
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <h3 class="footer-logo">Waznaw</h3>
+            <p class="footer-text">Инфраструктурные решения для цифрового бизнеса. Создаем надежные системы, которые
+                работают.</p>
+            <div class="copyright">
+                <p>© 2023-2025 Waznaw. Все права защищены. ИП Вазанов Дмитрий Андреевич. ОГРН 322213000008869</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="requestModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h3 class="modal-title">Оставить заявку</h3>
+
+            <form id="requestForm">
+                <div class="form-group">
+                    <label for="modalName" class="form-label">Ваше имя</label>
+                    <input type="text" id="modalName" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalContact" class="form-label">Контактные данные</label>
+                    <input type="text" id="modalContact" class="form-control" placeholder="Email или телефон" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalSubject" class="form-label">Тема</label>
+                    <input type="text" id="modalSubject" class="form-control" placeholder="О чем ваш запрос?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalMessage" class="form-label">Сообщение</label>
+                    <textarea id="modalMessage" class="form-control" rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-paper-plane"></i> Отправить заявку
+                </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
