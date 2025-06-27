@@ -838,3 +838,88 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* Кастомный алерт */
+        .custom-alert {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 20px 30px;
+            box-shadow: var(--shadow-lg);
+            border-left: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1100;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            max-width: 90%;
+            width: 400px;
+        }
+
+        .custom-alert.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .custom-alert.success {
+            border-left-color: var(--secondary);
+        }
+
+        .custom-alert.error {
+            border-left-color: var(--accent);
+        }
+
+        .alert-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .success .alert-icon {
+            color: var(--secondary);
+        }
+
+        .error .alert-icon {
+            color: var(--accent);
+        }
+
+        .alert-content {
+            flex-grow: 1;
+        }
+
+        .alert-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .alert-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .close-alert {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0;
+            margin-left: 10px;
+        }
+
+        .close-alert:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 480px) {
+            .custom-alert {
+                width: calc(100% - 40px);
+                padding: 15px 20px;
+            }
+        }

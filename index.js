@@ -101,6 +101,36 @@
             });
             
             // Функция отправки запроса
+            function showAlert(title, message, type = 'success') {
+                const alert = document.getElementById('customAlert');
+                const alertTitle = document.getElementById('alertTitle');
+                const alertMessage = document.getElementById('alertMessage');
+                const alertIcon = alert.querySelector('.alert-icon i');
+                
+                // Устанавливаем заголовок и сообщение
+                alertTitle.textContent = title;
+                alertMessage.textContent = message;
+                
+                // Устанавливаем тип алерта и иконку
+                alert.className = `custom-alert ${type}`;
+                alertIcon.className = type === 'success' ? 
+                    'fas fa-check-circle' : 'fas fa-exclamation-circle';
+                
+                // Показываем алерт
+                alert.classList.add('show');
+                
+                // Автоматическое скрытие через 5 секунд
+                setTimeout(() => {
+                    alert.classList.remove('show');
+                }, 5000);
+            }
+
+            // Закрытие алерта по клику
+            document.getElementById('closeAlert').addEventListener('click', function() {
+                document.getElementById('customAlert').classList.remove('show');
+            });
+
+            // Функция отправки запроса
             function sendContactRequest(data, formId) {
                 const formElement = document.getElementById(formId);
                 const submitButton = formElement.querySelector('button[type="submit"]');
@@ -126,7 +156,11 @@
                 })
                 .then(data => {
                     // Успешная отправка
-                    alert('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.');
+                    showAlert(
+                        'Успешно!', 
+                        'Сообщение отправлено! Мы свяжемся с вами в ближайшее время.',
+                        'success'
+                    );
                     
                     // Сброс формы
                     formElement.reset();
@@ -139,7 +173,11 @@
                 })
                 .catch(error => {
                     console.error('Ошибка:', error);
-                    alert('Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже или свяжитесь с нами другим способом.');
+                    showAlert(
+                        'Ошибка', 
+                        'Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже или свяжитесь с нами другим способом.',
+                        'error'
+                    );
                 })
                 .finally(() => {
                     // Восстанавливаем кнопку
