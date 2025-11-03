@@ -4,100 +4,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waznaw | Инфраструктурные решения</title>
+    <meta name="description" content="Waznaw - Инфраструктурные решения и системная интеграция для цифрового бизнеса. Разработка систем, CRM интеграции, облачная инфраструктура.">
+    <meta name="keywords" content="Waznaw, инфраструктура, разработка, CRM, облачные решения, системная интеграция">
+    <meta name="author" content="Waznaw">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://waznaw.ru/">
+    <meta property="og:title" content="Waznaw | Инфраструктурные решения">
+    <meta property="og:description" content="Инфраструктурные решения и системная интеграция для цифрового бизнеса">
+    <meta property="og:image" content="/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://waznaw.ru/">
+    <meta property="twitter:title" content="Waznaw | Инфраструктурные решения">
+    <meta property="twitter:description" content="Инфраструктурные решения и системная интеграция для цифрового бизнеса">
+    
+    <title>Waznaw | Инфраструктурные решения для бизнеса</title>
+    
+    <!-- Preconnect для ускорения загрузки шрифтов -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Основные стили -->
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.ico"/>
+    <link rel="apple-touch-icon" href="favicon.ico">
+    
+    <!-- Theme Color для мобильных браузеров -->
+    <meta name="theme-color" content="#7C3AED">
 </head>
 
 <body>
     <!-- Переключатель темы -->
-    <div class="theme-switcher" id="themeSwitcher">
-        <i class="fas fa-moon"></i>
+    <div class="theme-switcher" id="themeSwitcher" aria-label="Переключить тему" role="button" tabindex="0">
+        <i class="fas fa-moon" aria-hidden="true"></i>
     </div>
-    <div class="custom-alert" id="customAlert">
+    
+    <!-- Custom Alert -->
+    <div class="custom-alert" id="customAlert" role="alert" aria-live="polite">
         <div class="alert-icon">
-            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-check-circle" aria-hidden="true"></i>
         </div>
         <div class="alert-content">
             <h4 id="alertTitle">Успешно</h4>
             <p id="alertMessage">Сообщение отправлено!</p>
         </div>
-        <button class="close-alert" id="closeAlert">
-            <i class="fas fa-times"></i>
+        <button class="close-alert" id="closeAlert" aria-label="Закрыть уведомление">
+            <i class="fas fa-times" aria-hidden="true"></i>
         </button>
     </div>
 
-    <!-- Хедер -->
-    <header>
-        <div class="header-bg"></div>
+    <!-- Hero Section -->
+    <header id="home" role="banner">
+        <div class="header-bg">
+            <div class="floating-shapes">
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+            </div>
+        </div>
         <div class="container">
             <div class="header-content">
                 <h1 class="logo">Waznaw</h1>
                 <div class="slogan">Смотри. Думай. Создавай</div>
                 <p class="tagline">Инфраструктурные решения и системная интеграция для цифрового бизнеса</p>
                 <button class="btn btn-primary" id="openModal">
-                    <i class="fas fa-paper-plane"></i> Отправить заявку
+                    <i class="fas fa-rocket"></i> Начать проект
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Сервисы -->
-    <section class="section services">
+    <!-- Services Section -->
+    <section class="section services" id="services" role="region" aria-labelledby="services-title">
         <div class="container">
-            <h2 class="section-title" data-aos>Наши направления</h2>
+            <h2 class="section-title" id="services-title" data-aos>Наши направления</h2>
+            <p class="section-subtitle" data-aos>Комплексные решения для вашего бизнеса</p>
 
             <div class="services-grid">
-                <div class="service-card" data-aos>
+                <article class="service-card" data-aos>
                     <div class="service-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3 class="service-title">Разработка систем</h3>
-                    <p class="service-description">Создаем индивидуальные программные решения для автоматизации
-                        бизнес-процессов любой сложности.</p>
-                </div>
+                    <p class="service-description">
+                        Создаем индивидуальные программные решения для автоматизации бизнес-процессов любой сложности. 
+                        От веб-приложений до корпоративных систем.
+                    </p>
+                </article>
 
-                <div class="service-card" data-aos data-aos-delay="100">
+                <article class="service-card" data-aos data-aos-delay="100">
                     <div class="service-icon">
                         <i class="fas fa-network-wired"></i>
                     </div>
-                    <h3 class="service-title">CRM интеграции</h3>
-                    <p class="service-description">Настраиваем и интегрируем CRM системы с другими сервисами компании
-                        для единого рабочего пространства.</p>
-                </div>
+                    <h3 class="service-title">Системная интеграция</h3>
+                    <p class="service-description">
+                        Объединяем разрозненные системы в единое пространство. 
+                        Настраиваем взаимодействие между CRM, ERP и другими бизнес-системами.
+                    </p>
+                </article>
 
-                <div class="service-card" data-aos data-aos-delay="200">
+                <article class="service-card" data-aos data-aos-delay="200">
                     <div class="service-icon">
-                        <i class="fas fa-server"></i>
+                        <i class="fas fa-cloud"></i>
                     </div>
-                    <h3 class="service-title">Инфраструктура</h3>
-                    <p class="service-description">Разрабатываем и поддерживаем надежную IT-инфраструктуру для
-                        бесперебойной работы ваших сервисов.</p>
-                </div>
+                    <h3 class="service-title">Облачная инфраструктура</h3>
+                    <p class="service-description">
+                        Разрабатываем и поддерживаем надежную облачную инфраструктуру для бесперебойной работы ваших сервисов 24/7.
+                    </p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Наши проекты -->
-    <section class="section portfolio">
+    <!-- Portfolio Section -->
+    <section class="section portfolio" id="portfolio" role="region" aria-labelledby="portfolio-title">
         <div class="container">
-            <h2 class="section-title" data-aos>Наши проекты</h2>
-            <p class="section-subtitle" data-aos>Реализованные решения для бизнеса и инфраструктуры</p>
+            <h2 class="section-title" id="portfolio-title" data-aos>Наши проекты</h2>
+            <p class="section-subtitle" data-aos>Реализованные решения для бизнеса и разработки</p>
 
             <div class="portfolio-grid">
-
-
-                <!-- Проект 2 -->
-                <div class="portfolio-card" data-aos data-aos-delay="100" onclick="openProjectModal('waznaw')">
-                    <div class="portfolio-image"
-                        style="background-image: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(5,150,105,0.2))">
-                        <i class="fas fa-network-wired"></i>
+                <!-- Проект Waznaw Cloud -->
+                <article class="portfolio-card" data-aos data-aos-delay="100" onclick="openProjectModal('waznaw')" role="button" tabindex="0">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(52,211,153,0.1))">
+                        <i class="fas fa-cloud-upload-alt"></i>
                     </div>
                     <div class="portfolio-content">
                         <h3>Waznaw Cloud</h3>
@@ -105,35 +143,36 @@
                             <span class="status-dot"></span>
                             <span>Online</span>
                         </div>
-                        <p>Инфраструктурные решения для бизнеса</p>
+                        <p>Инфраструктурные облачные решения для бизнеса любого масштаба</p>
                     </div>
-                </div>
+                </article>
 
-                <!-- Проект 3 -->
-                <div class="portfolio-card" data-aos data-aos-delay="200" onclick="openProjectModal('crm')">
-                    <div class="portfolio-image"
-                        style="background-image: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(129,140,248,0.2))">
-                        <i class="fas fa-users-cog"></i>
+                <!-- Проект Weather App -->
+                <article class="portfolio-card" data-aos data-aos-delay="200" onclick="openProjectModal('weather')" role="button" tabindex="0">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(251,191,36,0.1))">
+                        <i class="fas fa-cloud-sun"></i>
                     </div>
                     <div class="portfolio-content">
-                        <h3>CRM Integrations</h3>
-                        <div class="portfolio-status status-maintenance">
+                        <h3>Weather App</h3>
+                        <div class="portfolio-status status-up">
                             <span class="status-dot"></span>
-                            <span>Maintenance</span>
+                            <span>Online</span>
                         </div>
-                        <p>Интеграция CRM систем с бизнес-процессами</p>
+                        <p>Интерактивное приложение с точным прогнозом погоды и аналитикой</p>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Модальные окна проектов -->
-    <div id="senderModal" class="project-modal">
+    <!-- Project Modals -->
+    
+    <!-- Sender Modal -->
+    <div id="senderModal" class="project-modal" role="dialog" aria-labelledby="senderModalTitle" aria-hidden="true">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('sender')">&times;</button>
+            <button class="close-modal" onclick="closeModal('sender')" aria-label="Закрыть">&times;</button>
             <div class="modal-header">
-                <h3>Sender</h3>
+                <h3 id="senderModalTitle">Sender</h3>
                 <div class="portfolio-status status-up">
                     <span class="status-dot"></span>
                     <span>Online</span>
@@ -152,32 +191,46 @@
                         <i class="fas fa-link"></i>
                         <div>
                             <span>Ссылка</span>
-                            <a href="https://sender.waznaw.ru" target="_blank">sender.waznaw.ru</a>
+                            <a href="https://sender.waznaw.ru" target="_blank" rel="noopener noreferrer">sender.waznaw.ru</a>
                         </div>
                     </div>
                 </div>
                 <div class="project-description">
                     <h4>Описание проекта</h4>
-                    <p>Мощный сервис для массовых рассылок покупателям OZON сообщений. Поддерживает группировку,
-                        фильтрацию. Есть функционал триггеров для рассылок в стиле "купил А - держи промокод на Б"</p>
+                    <p>
+                        Мощный сервис для массовых рассылок покупателям маркетплейсов. 
+                        Поддерживает сегментацию аудитории, персонализацию сообщений и гибкую систему триггеров. 
+                        Интеграция с OZON позволяет автоматизировать маркетинговые кампании типа "купил товар А - получи промокод на товар Б".
+                    </p>
 
-                    <h4>Технологии</h4>
+                    <h4>Ключевые функции</h4>
+                    <p>
+                        • Массовые рассылки с персонализацией<br>
+                        • Интеграция с маркетплейсами<br>
+                        • Триггерные кампании и автоворонки<br>
+                        • Детальная аналитика конверсий
+                    </p>
+
+                    <h4>Технологический стек</h4>
                     <div class="tech-tags">
-                        <span>.NET</span>
+                        <span>.NET Core</span>
                         <span>PostgreSQL</span>
                         <span>DevExpress</span>
                         <span>RabbitMQ</span>
+                        <span>Docker</span>
+                        <span>Redis</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="waznawModal" class="project-modal">
+    <!-- Waznaw Cloud Modal -->
+    <div id="waznawModal" class="project-modal" role="dialog" aria-labelledby="waznawModalTitle" aria-hidden="true">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('waznaw')">&times;</button>
+            <button class="close-modal" onclick="closeModal('waznaw')" aria-label="Закрыть">&times;</button>
             <div class="modal-header">
-                <h3>Waznaw Cloud</h3>
+                <h3 id="waznawModalTitle">Waznaw Cloud</h3>
                 <div class="portfolio-status status-up">
                     <span class="status-dot"></span>
                     <span>Online</span>
@@ -189,42 +242,59 @@
                         <i class="fas fa-calendar-alt"></i>
                         <div>
                             <span>Дата запуска</span>
-                            <strong>10 марта 2023</strong>
+                            <strong>10 января 2023</strong>
                         </div>
                     </div>
                     <div class="meta-item">
                         <i class="fas fa-link"></i>
                         <div>
                             <span>Ссылка</span>
-                            <a href="https://waznaw.ru" target="_blank">waznaw.ru</a>
+                            <a href="https://waznaw.ru" target="_blank" rel="noopener noreferrer">waznaw.ru</a>
                         </div>
                     </div>
                 </div>
                 <div class="project-description">
                     <h4>Описание проекта</h4>
-                    <p>Комплекс облачных решений для бизнеса включая виртуальные серверы, управляемые базы данных,
-                        объектное хранилище и CDN. Обеспечивает высокую доступность и безопасность инфраструктуры.</p>
+                    <p>
+                        Комплексная платформа облачных решений для бизнеса. 
+                        Включает виртуальные серверы с автомасштабированием, управляемые базы данных, 
+                        объектное хранилище S3-совместимое и глобальную CDN. 
+                        Обеспечивает 99.9% доступность сервисов.
+                    </p>
 
-                    <h4>Технологии</h4>
+                    <h4>Преимущества платформы</h4>
+                    <p>
+                        • Автоматическое масштабирование под нагрузку<br>
+                        • Резервное копирование и восстановление<br>
+                        • DDoS-защита и Web Application Firewall<br>
+                        • Мониторинг и алерты в реальном времени<br>
+                        • Pay-as-you-go модель оплаты
+                    </p>
+
+                    <h4>Технологический стек</h4>
                     <div class="tech-tags">
                         <span>Kubernetes</span>
                         <span>Terraform</span>
                         <span>Prometheus</span>
                         <span>Grafana</span>
+                        <span>GitLab CI/CD</span>
+                        <span>Ansible</span>
+                        <span>MinIO</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="crmModal" class="project-modal">
+    <!-- Weather App Modal -->
+    <div id="weatherModal" class="project-modal" role="dialog" aria-labelledby="weatherModalTitle" aria-hidden="true">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('crm')">&times;</button>
+            <button class="close-modal" onclick="closeModal('weather')" aria-label="Закрыть">&times;</button>
             <div class="modal-header">
-                <h3>CRM Integrations</h3>
-                <div class="portfolio-status status-maintenance">
+                <h3 id="weatherModalTitle">Weather App</h3>
+                <div class="portfolio-status status-up">
                     <span class="status-dot"></span>
-                    <span>Maintenance</span>
+                    <span>Online</span>
                 </div>
             </div>
             <div class="modal-body">
@@ -233,45 +303,65 @@
                         <i class="fas fa-calendar-alt"></i>
                         <div>
                             <span>Дата запуска</span>
-                            <strong>5 сентября 2025</strong>
+                            <strong>1 октября 2024</strong>
                         </div>
                     </div>
                     <div class="meta-item">
                         <i class="fas fa-link"></i>
                         <div>
-                            <span>Ссылка</span>
-                            <a href="https://crm.waznaw.ru" target="_blank">crm.waznaw.ru</a>
+                            <span>Демо версия</span>
+                            <a href="https://weather.waznaw.ru" target="_blank" rel="noopener noreferrer">weather.waznaw.ru</a>
                         </div>
                     </div>
                 </div>
                 <div class="project-description">
                     <h4>Описание проекта</h4>
-                    <p>Решение для интеграции популярных CRM систем (AmoCRM, Битрикс24) с бизнес-процессами компании.
-                        Автоматизация воронки продаж, синхронизация данных между системами, аналитика.</p>
+                    <p>
+                        Современное погодное приложение с интуитивным интерфейсом для отслеживания погоды в любой точке мира. 
+                        Использует открытые данные Open-Meteo API, что позволяет работать без ограничений и API-ключей. 
+                        Полностью адаптивный дизайн обеспечивает комфортное использование на любых устройствах.
+                    </p>
 
-                    <h4>Технологии</h4>
+                    <h4>Функциональные возможности</h4>
+                    <p>
+                        • Текущая погода с детальной информацией<br>
+                        • Почасовой прогноз на 24 часа с графиками<br>
+                        • Недельный прогноз с трендами<br>
+                        • История поисковых запросов за неделю<br>
+                        • Автоопределение местоположения<br>
+                        • Темная и светлая темы оформления<br>
+                        • Автодополнение при поиске городов<br>
+                        • Офлайн-режим с кешированием данных
+                    </p>
+
+                    <h4>Технологический стек</h4>
                     <div class="tech-tags">
-                        <span>Python</span>
-                        <span>Django</span>
-                        <span>Celery</span>
-                        <span>REST API</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript ES6+</span>
+                        <span>Open-Meteo API</span>
+                        <span>LocalStorage</span>
+                        <span>Docker</span>
+                        <span>PWA</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Контакты -->
-    <section class="contact">
+    <!-- Contact Section -->
+    <section class="contact" id="contact" role="region" aria-labelledby="contact-title">
         <div class="container">
             <div class="contact-container">
                 <div class="contact-info" data-aos>
-                    <h3 class="contact-title">Свяжитесь с нами</h3>
-                    <p class="contact-text">Готовы обсудить ваш проект или ответить на любые вопросы. Оставьте заявку, и
-                        мы свяжемся с вами в ближайшее время.</p>
+                    <h3 class="contact-title" id="contact-title">Давайте создадим что-то великое</h3>
+                    <p class="contact-text">
+                        Готовы обсудить ваш проект или ответить на любые вопросы. 
+                        Мы всегда открыты для новых идей и партнерств. 
+                        Свяжитесь с нами, и мы найдем оптимальное решение для вашего бизнеса.
+                    </p>
 
                     <div class="contact-methods">
-
                         <div class="contact-method">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
@@ -282,35 +372,41 @@
                             </div>
                         </div>
 
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Время ответа</h4>
+                                <p>В течение 24 часов</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="contact-form" data-aos data-aos-delay="100">
-                    <form id="contactForm">
+                    <form id="contactForm" novalidate>
                         <div class="form-group">
-                            <label for="name" class="form-label">Ваше имя</label>
-                            <input type="text" id="name" class="form-control" placeholder="Введите имя" required>
+                            <label for="name" class="form-label">Ваше имя *</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Иван Иванов" required aria-required="true">
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class="form-label">Email или телефон</label>
-                            <input type="text" id="contact" class="form-control" placeholder="Как с вами связаться"
-                                required>
+                            <label for="contact" class="form-label">Email или телефон *</label>
+                            <input type="text" id="contact" name="contact" class="form-control" placeholder="email@example.com или +7 999 999-99-99" required aria-required="true">
                         </div>
 
                         <div class="form-group">
-                            <label for="subject" class="form-label">Тема</label>
-                            <input type="text" id="subject" class="form-control"
-                                placeholder="О чем вы хотите поговорить?" required>
+                            <label for="subject" class="form-label">Тема обращения *</label>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Разработка веб-приложения" required aria-required="true">
                         </div>
 
                         <div class="form-group">
-                            <label for="message" class="form-label">Сообщение</label>
-                            <textarea id="message" class="form-control" placeholder="Опишите ваш проект или вопрос..."
-                                required></textarea>
+                            <label for="message" class="form-label">Сообщение *</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Расскажите о вашем проекте, задачах и ожидаемых результатах..." required aria-required="true"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <button type="submit" class="btn btn-secondary" style="width: 100%;">
                             <i class="fas fa-paper-plane"></i> Отправить сообщение
                         </button>
                     </form>
@@ -319,53 +415,78 @@
         </div>
     </section>
 
-    <!-- Футер -->
-    <footer>
+    <!-- Footer -->
+    <footer role="contentinfo">
         <div class="container">
             <h3 class="footer-logo">Waznaw</h3>
-            <p class="footer-text">Инфраструктурные решения для цифрового бизнеса. Создаем надежные системы, которые
-                работают.</p>
+            <p class="footer-text">
+                Инфраструктурные решения для цифрового бизнеса. 
+                Создаем надежные системы, которые работают и приносят результат.
+            </p>
             <div class="copyright">
                 <p>© 2023-2025 Waznaw. Все права защищены.</p>
-                <p>ИП Вазанов Дмитрий Андреевич ИНН 212701856532 ОГРН 322213000008869</p>
+                <p>ИП Вазанов Дмитрий Андреевич • ИНН 212701856532 • ОГРН 322213000008869</p>
             </div>
         </div>
     </footer>
 
-    <!-- Модальное окно -->
-    <div class="modal" id="requestModal">
+    <!-- Request Modal -->
+    <div class="modal" id="requestModal" role="dialog" aria-labelledby="requestModalTitle" aria-hidden="true">
         <div class="modal-content">
-            <button class="close-modal" id="closeModal">&times;</button>
-            <h3 class="modal-title">Оставить заявку</h3>
+            <button class="close-modal" id="closeModal" aria-label="Закрыть">&times;</button>
+            <h3 class="modal-title" id="requestModalTitle">Начать новый проект</h3>
 
-            <form id="requestForm">
+            <form id="requestForm" novalidate>
                 <div class="form-group">
-                    <label for="modalName" class="form-label">Ваше имя</label>
-                    <input type="text" id="modalName" class="form-control" required>
+                    <label for="modalName" class="form-label">Ваше имя *</label>
+                    <input type="text" id="modalName" name="modalName" class="form-control" placeholder="Иван Иванов" required aria-required="true">
                 </div>
 
                 <div class="form-group">
-                    <label for="modalContact" class="form-label">Контактные данные</label>
-                    <input type="text" id="modalContact" class="form-control" placeholder="Email или телефон" required>
+                    <label for="modalContact" class="form-label">Контактные данные *</label>
+                    <input type="text" id="modalContact" name="modalContact" class="form-control" placeholder="Email или телефон" required aria-required="true">
                 </div>
 
                 <div class="form-group">
-                    <label for="modalSubject" class="form-label">Тема</label>
-                    <input type="text" id="modalSubject" class="form-control" placeholder="О чем ваш запрос?" required>
+                    <label for="modalSubject" class="form-label">Тип проекта *</label>
+                    <input type="text" id="modalSubject" name="modalSubject" class="form-control" placeholder="Веб-приложение, мобильное приложение, интеграция..." required aria-required="true">
                 </div>
 
                 <div class="form-group">
-                    <label for="modalMessage" class="form-label">Сообщение</label>
-                    <textarea id="modalMessage" class="form-control" rows="4" required></textarea>
+                    <label for="modalMessage" class="form-label">Описание проекта *</label>
+                    <textarea id="modalMessage" name="modalMessage" class="form-control" rows="4" placeholder="Опишите вашу идею, цели и ожидания..." required aria-required="true"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width: 100%;">
-                    <i class="fas fa-paper-plane"></i> Отправить заявку
+                    <i class="fas fa-rocket"></i> Отправить заявку
                 </button>
             </form>
         </div>
     </div>
 
+    <!-- JavaScript -->
+    <script src="index.js"></script>
+    
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(105091509, 'init', {
+            ssr:true,
+            webvisor:true,
+            clickmap:true,
+            ecommerce:"dataLayer",
+            accurateTrackBounce:true,
+            trackLinks:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/105091509" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </body>
 
 </html>
