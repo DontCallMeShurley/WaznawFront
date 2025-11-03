@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function initForms() {
         const forms = [
             { id: 'requestForm', fields: ['modalName', 'modalContact', 'modalSubject', 'modalMessage'] },
-            { id: 'contactForm', fields: ['name', 'contact', 'subject', 'message'] }
+            { id: 'contactForm', fields: ['name', 'contact2', 'subject', 'message'] }
         ];
         
         forms.forEach(formConfig => {
