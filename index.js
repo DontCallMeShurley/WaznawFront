@@ -121,6 +121,15 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('modal') || e.target.classList.contains('project-modal')) {
                 const modal = e.target;
+                // Удаляем все перемещённые кнопки перед закрытием
+                const movedBtns = document.querySelectorAll('.close-modal.moved-to-body');
+                movedBtns.forEach(btn => btn.remove());
+                // Возвращаем оригинальные кнопки
+                const originalBtns = modal.querySelectorAll('.close-modal');
+                originalBtns.forEach(btn => {
+                    btn.style.display = '';
+                    btn.classList.remove('moved-to-body');
+                });
                 closeModalDialog(modal);
             }
         });
@@ -128,17 +137,58 @@ document.addEventListener('DOMContentLoaded', function() {
         // Закрытие по Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
+                // Удаляем все перемещённые кнопки перед закрытием
+                const movedBtns = document.querySelectorAll('.close-modal.moved-to-body');
+                movedBtns.forEach(btn => btn.remove());
+                // Возвращаем оригинальные кнопки
                 const activeModals = document.querySelectorAll('.modal.active, .project-modal.active');
-                activeModals.forEach(modal => closeModalDialog(modal));
+                activeModals.forEach(modal => {
+                    const originalBtns = modal.querySelectorAll('.close-modal');
+                    originalBtns.forEach(btn => {
+                        btn.style.display = '';
+                        btn.classList.remove('moved-to-body');
+                    });
+                    closeModalDialog(modal);
+                });
             }
         });
     }
     
     // Функции открытия/закрытия модальных окон
     function openModal(modal) {
+        // Сначала очищаем все предыдущие перемещённые кнопки
+        const movedBtns = document.querySelectorAll('.close-modal.moved-to-body');
+        movedBtns.forEach(btn => btn.remove());
+        
+        // Возвращаем все оригинальные кнопки в исходное состояние
+        const allCloseBtns = document.querySelectorAll('.close-modal');
+        allCloseBtns.forEach(btn => {
+            btn.style.display = '';
+            btn.classList.remove('moved-to-body');
+        });
+        
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        
+        // На мобилках перемещаем кнопку закрытия в body для правильного fixed позиционирования
+        if (window.innerWidth <= 768) {
+            const closeBtn = modal.querySelector('.close-modal');
+            if (closeBtn) {
+                closeBtn.classList.add('moved-to-body');
+                const clonedBtn = closeBtn.cloneNode(true);
+                clonedBtn.classList.add('moved-to-body');
+                // Устанавливаем обработчик закрытия
+                clonedBtn.onclick = function() {
+                    closeModalDialog(modal);
+                };
+                if (closeBtn.id) {
+                    clonedBtn.id = closeBtn.id + '-mobile';
+                }
+                closeBtn.style.display = 'none';
+                document.body.appendChild(clonedBtn);
+            }
+        }
         
         // Фокус на первом элементе формы
         setTimeout(() => {
@@ -148,6 +198,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function closeModalDialog(modal) {
+        // Удаляем все перемещённые кнопки из body
+        const movedBtns = document.querySelectorAll('.close-modal.moved-to-body');
+        movedBtns.forEach(btn => btn.remove());
+        
+        // Возвращаем оригинальные кнопки
+        const originalBtns = modal.querySelectorAll('.close-modal');
+        originalBtns.forEach(btn => {
+            btn.style.display = '';
+            btn.classList.remove('moved-to-body');
+        });
+        
         modal.classList.remove('active');
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
@@ -455,9 +516,36 @@ document.addEventListener('DOMContentLoaded', function() {
 function openProjectModal(projectId) {
     const modal = document.getElementById(`${projectId}Modal`);
     if (modal) {
+        // Сначала очищаем все предыдущие перемещённые кнопки
+        const movedBtns = document.querySelectorAll('.close-modal.moved-to-body');
+        movedBtns.forEach(btn => btn.remove());
+        
+        // Возвращаем все оригинальные кнопки в исходное состояние
+        const allCloseBtns = document.querySelectorAll('.close-modal');
+        allCloseBtns.forEach(btn => {
+            btn.style.display = '';
+            btn.classList.remove('moved-to-body');
+        });
+        
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        
+        // На мобилках перемещаем кнопку закрытия в body для правильного fixed позиционирования
+        if (window.innerWidth <= 768) {
+            const closeBtn = modal.querySelector('.close-modal');
+            if (closeBtn) {
+                closeBtn.classList.add('moved-to-body');
+                const clonedBtn = closeBtn.cloneNode(true);
+                clonedBtn.classList.add('moved-to-body');
+                // Устанавливаем обработчик закрытия для проектных модалок
+                clonedBtn.onclick = function() {
+                    closeModal(projectId);
+                };
+                closeBtn.style.display = 'none';
+                document.body.appendChild(clonedBtn);
+            }
+        }
         
         // Анимация появления
         setTimeout(() => {
@@ -472,6 +560,17 @@ function openProjectModal(projectId) {
 function closeModal(projectId) {
     const modal = document.getElementById(`${projectId}Modal`);
     if (modal) {
+        // Удаляем все перемещённые кнопки из body
+        const movedBtns = document.querySelectorAll('.close-modal.moved-to-body');
+        movedBtns.forEach(btn => btn.remove());
+        
+        // Возвращаем оригинальные кнопки
+        const originalBtns = modal.querySelectorAll('.close-modal');
+        originalBtns.forEach(btn => {
+            btn.style.display = '';
+            btn.classList.remove('moved-to-body');
+        });
+        
         modal.classList.remove('active');
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';

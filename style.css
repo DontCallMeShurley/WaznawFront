@@ -1151,15 +1151,20 @@ footer {
     outline-offset: 2px;
 }
 
-/* Мобилки: стрелка назад слева */
+/* Мобилки: стрелка назад слева - фиксированная к экрану */
 @media (max-width: 768px) {
     .close-modal {
-        top: var(--space-lg);
-        left: var(--space-lg);
-        right: auto;
+        position: fixed !important;
+        top: var(--space-lg) !important;
+        left: var(--space-lg) !important;
+        right: auto !important;
+        bottom: auto !important;
         background: var(--bg-secondary);
         border-color: var(--border-color);
+        z-index: 9999 !important;
+        transform: none !important;
     }
+    
     
     /* Скрываем крестик, показываем стрелку */
     .close-modal .desktop-icon {
@@ -1199,10 +1204,12 @@ footer {
 /* Улучшение для touch-устройств */
 @media (hover: none) and (pointer: coarse) {
     .close-modal {
+        position: fixed;
         width: 48px;
         height: 48px;
         min-width: 44px;
         min-height: 44px;
+        z-index: calc(var(--z-modal) + 1);
     }
     
     .close-modal i {
@@ -1501,11 +1508,13 @@ footer {
     }
     
     .close-modal {
+        position: fixed;
         top: var(--space-md);
         left: var(--space-md);
         right: auto;
         width: 36px;
         height: 36px;
+        z-index: calc(var(--z-modal) + 1);
     }
     
     .close-modal i {
@@ -1656,11 +1665,13 @@ footer {
     }
     
     .close-modal {
+        position: fixed;
         top: var(--space-md);
         left: var(--space-md);
         right: auto;
         width: 40px;
         height: 40px;
+        z-index: calc(var(--z-modal) + 1);
     }
     
     .close-modal i {
@@ -1743,11 +1754,13 @@ footer {
     }
     
     .close-modal {
+        position: fixed;
         width: 32px;
         height: 32px;
         top: var(--space-sm);
         left: var(--space-sm);
         right: auto;
+        z-index: calc(var(--z-modal) + 1);
     }
     
     .close-modal i {
@@ -1837,11 +1850,13 @@ footer {
     }
     
     .close-modal {
+        position: fixed;
         width: 28px;
         height: 28px;
         top: var(--space-xs);
         left: var(--space-xs);
         right: auto;
+        z-index: calc(var(--z-modal) + 1);
     }
     
     .close-modal i {
