@@ -686,6 +686,8 @@ header .btn {
     visibility: hidden;
     transition: var(--transition-base);
     padding: var(--space-lg);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .project-modal.active {
@@ -704,6 +706,8 @@ header .btn {
     transform: scale(0.9) translateY(20px);
     transition: var(--transition-spring);
     border: 1px solid var(--border-color);
+    position: relative;
+    margin: var(--space-lg);
 }
 
 .project-modal.active .modal-content {
@@ -719,6 +723,52 @@ header .btn {
     justify-content: space-between;
     align-items: center;
     border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+}
+
+/* Улучшенная видимость крестика на градиентном фоне */
+.project-modal .modal-content .close-modal {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-modal .modal-content .close-modal::before,
+.project-modal .modal-content .close-modal::after {
+    background: white;
+}
+
+.project-modal .modal-content .close-modal:hover,
+.project-modal .modal-content .close-modal:focus {
+    background: var(--danger);
+    border-color: var(--danger);
+    color: white;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.project-modal .modal-content .close-modal:hover::before,
+.project-modal .modal-content .close-modal:hover::after,
+.project-modal .modal-content .close-modal:focus::before,
+.project-modal .modal-content .close-modal:focus::after {
+    background: white;
+}
+
+/* Стрелка назад для мобилок на градиентном фоне */
+@media (max-width: 768px) {
+    .project-modal .modal-content .close-modal {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+        color: white;
+    }
+    
+    .project-modal .modal-content .close-modal:hover,
+    .project-modal .modal-content .close-modal:focus {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.5);
+        color: white;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    }
 }
 
 .modal-header h3 {
@@ -1015,6 +1065,8 @@ footer {
     visibility: hidden;
     transition: var(--transition-base);
     padding: var(--space-lg);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .modal.active {
@@ -1032,6 +1084,9 @@ footer {
     transform: scale(0.9) translateY(20px);
     transition: var(--transition-spring);
     position: relative;
+    margin: var(--space-lg);
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .modal.active .modal-content {
@@ -1042,24 +1097,123 @@ footer {
     position: absolute;
     top: var(--space-lg);
     right: var(--space-lg);
-    background: var(--bg-secondary);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-lg);
-    font-size: 1.25rem;
+    left: auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--border-color);
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
     cursor: pointer;
-    color: var(--text-muted);
-    transition: var(--transition-fast);
+    color: var(--text-color);
+    transition: var(--transition-spring);
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
 }
 
-.close-modal:hover {
+.dark-mode .close-modal {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal i {
+    font-size: 1.125rem;
+    transition: var(--transition-fast);
+}
+
+/* Десктоп: показываем крестик, скрываем стрелку */
+.close-modal .desktop-icon {
+    display: block;
+}
+
+.close-modal .mobile-icon {
+    display: none;
+}
+
+.close-modal:hover,
+.close-modal:focus {
     background: var(--danger);
     color: white;
-    transform: rotate(90deg);
+    border-color: var(--danger);
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.close-modal:active {
+    transform: scale(0.95) rotate(90deg);
+}
+
+.close-modal:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Мобилки: стрелка назад слева */
+@media (max-width: 768px) {
+    .close-modal {
+        top: var(--space-lg);
+        left: var(--space-lg);
+        right: auto;
+        background: var(--bg-secondary);
+        border-color: var(--border-color);
+    }
+    
+    /* Скрываем крестик, показываем стрелку */
+    .close-modal .desktop-icon {
+        display: none;
+    }
+    
+    .close-modal .mobile-icon {
+        display: block;
+    }
+    
+    .close-modal:hover,
+    .close-modal:focus {
+        transform: scale(1.05) translateX(-4px);
+        background: var(--primary);
+        border-color: var(--primary);
+        color: white;
+        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    }
+    
+    .close-modal:active {
+        transform: scale(0.95) translateX(-2px);
+    }
+    
+    .dark-mode .close-modal {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+    
+    .dark-mode .close-modal:hover,
+    .dark-mode .close-modal:focus {
+        background: var(--primary);
+        border-color: var(--primary);
+    }
+}
+
+/* Улучшение для touch-устройств */
+@media (hover: none) and (pointer: coarse) {
+    .close-modal {
+        width: 48px;
+        height: 48px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .close-modal i {
+        font-size: 1.25rem;
+    }
+    
+    .close-modal:active {
+        transform: scale(0.9) translateX(-2px);
+        background: var(--primary);
+        border-color: var(--primary);
+    }
 }
 
 .modal-title {
@@ -1332,6 +1486,30 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--space-md);
+        padding: var(--space-lg);
+    }
+    
+    .modal-content {
+        padding: var(--space-lg);
+        max-width: calc(100% - 24px);
+        margin: var(--space-md);
+    }
+    
+    .project-modal .modal-content {
+        max-width: calc(100% - 24px);
+        margin: var(--space-md);
+    }
+    
+    .close-modal {
+        top: var(--space-md);
+        left: var(--space-md);
+        right: auto;
+        width: 36px;
+        height: 36px;
+    }
+    
+    .close-modal i {
+        font-size: 0.95rem;
     }
     
     .theme-switcher {
@@ -1463,10 +1641,39 @@ footer {
     .modal-content {
         padding: var(--space-lg);
         margin: var(--space-md);
+        max-width: calc(100% - 32px);
+        max-height: calc(100vh - 32px);
     }
     
+    .project-modal .modal-content {
+        max-width: calc(100% - 32px);
+        max-height: calc(100vh - 32px);
+        margin: var(--space-md);
+    }
+
     .modal-title {
         font-size: 1.5rem;
+    }
+    
+    .close-modal {
+        top: var(--space-md);
+        left: var(--space-md);
+        right: auto;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .close-modal i {
+        font-size: 1rem;
+    }
+    
+    .modal-header {
+        padding: var(--space-lg);
+        flex-wrap: wrap;
+    }
+    
+    .modal-body {
+        padding: var(--space-lg);
     }
     
     .custom-alert {
@@ -1525,6 +1732,35 @@ footer {
     .portfolio-image {
         height: 140px;
     }
+    
+    .modal-content,
+    .project-modal .modal-content {
+        padding: var(--space-md);
+        margin: var(--space-sm);
+        max-width: calc(100% - 16px);
+        max-height: calc(100vh - 16px);
+        border-radius: var(--radius-xl);
+    }
+    
+    .close-modal {
+        width: 32px;
+        height: 32px;
+        top: var(--space-sm);
+        left: var(--space-sm);
+        right: auto;
+    }
+    
+    .close-modal i {
+        font-size: 0.9rem;
+    }
+    
+    .modal-header {
+        padding: var(--space-md);
+    }
+    
+    .modal-body {
+        padding: var(--space-md);
+    }
 }
 
 /* Ландшафтная ориентация для мобильных */
@@ -1543,6 +1779,20 @@ footer {
     
     .section {
         padding: var(--space-xl) 0;
+    }
+    
+    .modal-content,
+    .project-modal .modal-content {
+        max-height: calc(100vh - 24px);
+        margin: var(--space-md);
+    }
+    
+    .modal-header {
+        padding: var(--space-md) var(--space-lg);
+    }
+    
+    .modal-body {
+        padding: var(--space-md) var(--space-lg);
     }
 }
 
@@ -1576,6 +1826,26 @@ footer {
     .theme-switcher {
         width: 40px;
         height: 40px;
+    }
+    
+    .modal-content,
+    .project-modal .modal-content {
+        padding: var(--space-sm);
+        margin: var(--space-xs);
+        max-width: calc(100% - 8px);
+        max-height: calc(100vh - 8px);
+    }
+    
+    .close-modal {
+        width: 28px;
+        height: 28px;
+        top: var(--space-xs);
+        left: var(--space-xs);
+        right: auto;
+    }
+    
+    .close-modal i {
+        font-size: 0.85rem;
     }
 }
 
